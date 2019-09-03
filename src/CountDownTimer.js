@@ -125,3 +125,10 @@ CountDownTimer.prototype.onStop = function(callback) {
     this.onStopCallback = callback;
     return this;
 };
+
+
+/**
+ * We run under Node.js
+ */
+if( !window )
+    exports.CountDownTimer = CountDownTimer;
