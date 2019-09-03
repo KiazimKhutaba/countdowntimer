@@ -32,14 +32,12 @@ CountDownTimer.toSeconds = function (str) {
     // we suppose that first value from left to right it's minutes and seconds
     // value is next
     if( timeParts.length === 2 ) {
-        hours = '00';
         [ minutes, seconds ] = timeParts;
+        return (+minutes) * 60 + (+seconds);
     } else {
         // split time format into array
         [hours, minutes, seconds] = timeParts;
     }
-
-    //let [hours, minutes, seconds] = timeParts;
 
     // convert string presentation to integer (add plus sign before variable for converting from string to number)
     return (+hours) * 3600 + (+minutes) * 60 + (+seconds);
@@ -78,7 +76,7 @@ CountDownTimer.addLeadingZero = function (time) {
 /**
  * Convert number of seconds to hh:mm:ss format string
  */
-CountDownTimer.format = function (seconds) {
+CountDownTimer.prototype.format = function (seconds) {
     return CountDownTimer.addLeadingZero(CountDownTimer.toTimeObject(seconds));
 };
 
