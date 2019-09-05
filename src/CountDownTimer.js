@@ -160,7 +160,7 @@ CountDownTimer.prototype.start = function () {
     (function timer() {
         diff = that.duration--;
 
-        if (diff > 0) {
+        if (diff >= 0) {
             setTimeout(timer, that.granularity);
         } else {
             diff = 0;
